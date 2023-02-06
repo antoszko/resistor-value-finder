@@ -35,6 +35,12 @@ to build do: `make`
 
 to clean do: `make clean`
 
+### Installing (Linux)
+
+to install do: `make install`
+
+to uninstall do: `make uninstall`
+
 ### Running
 
 to run do: 
