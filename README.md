@@ -61,3 +61,5 @@ Please input the target ratio R1/R2:
 ```
 
 each series gives a better and better approximation of the target ratio 4.11. The most accurate resistor combination would be a 15k and 3.65k resistor.
+
+Note: if its installed you can also do `resistor_value_finder` in any directory to run.
