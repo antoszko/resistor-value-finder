@@ -10,11 +10,11 @@ constexpr std::array<double, 12> E12 = {
     3.3, 3.9, 4.7, 5.6, 6.8, 8.2
 };
 constexpr std::array<double, 36> E24 = {
-    1.0, 1.2, 1.5, 1.8, 2.2, 2.7,
+    1.0, 1.2, 1.5, 1.8, 2.2, 2.7,   // series E12
     3.3, 3.9, 4.7, 5.6, 6.8, 8.2,
 
-    1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 
-    1.8, 2.0, 2.2, 2.4, 2.7, 3.0, 
+    1.0, 1.1, 1.2, 1.3, 1.5, 1.6,   // series E24
+    1.8, 2.0, 2.2, 2.4, 2.7, 3.0,   // there are some repeats but IDC
     3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 
     5.6, 6.2, 6.8, 7.5, 8.2, 9.1
     
@@ -49,13 +49,13 @@ Solution findBestR1andR2(const std::array<double, seriesSize>& series, double ta
     double bestR1 = series[0];
     double bestR2 = series[0];
 
-    for (size_t i = 0; i < series.size(); i++) {
-        for (size_t j = 0; j < series.size(); j++) {
-            double ratio = series[i]/series[j];
+    for (double val1 : series) {
+        for (double val2 : series) {
+            double ratio = val1/val2;
             double deltaRatio = std::abs(ratio - targetRatio);
             if(deltaRatio < minDeltaRatio) {
-                bestR1 = series[i];
-                bestR2 = series[j];
+                bestR1 = val1;
+                bestR2 = val2;
                 minDeltaRatio = deltaRatio;
             }
         }
@@ -111,8 +111,8 @@ int main() {
 
     }
 
-    std::cout << "[E12] " << E12Solution.R1 << ":" << E12Solution.R2 << " (" << E12Solution.R1/E12Solution.R2 << ")\n";
-    std::cout << "[E24] " << E24Solution.R1 << ":" << E24Solution.R2 << " (" << E24Solution.R1/E24Solution.R2 << ")\n";
-    std::cout << "[E48] " << E48Solution.R1 << ":" << E48Solution.R2 << " (" << E48Solution.R1/E48Solution.R2 << ")\n";
+    std::cout << "[E12] " << E12Solution.R1 << "/" << E12Solution.R2 << " (" << E12Solution.R1/E12Solution.R2 << ")\n";
+    std::cout << "[E24] " << E24Solution.R1 << "/" << E24Solution.R2 << " (" << E24Solution.R1/E24Solution.R2 << ")\n";
+    std::cout << "[E48] " << E48Solution.R1 << "/" << E48Solution.R2 << " (" << E48Solution.R1/E48Solution.R2 << ")\n";
     
 }

@@ -1,6 +1,6 @@
 # resistor-value-finder
 
-When designing circuits, I often need two resistors to have a certain ratio, but resistors only come in certain discrete values. This program finds a pair of standard values that closely approximate the target ratio. 
+When designing circuits, I often need two resistors to have a certain ratio, but resistors only come in discrete values. This program finds a pair of standard values that closely approximate the target ratio. 
 
 ## How it works
 
@@ -23,7 +23,7 @@ E48:
     7.50, 7.87, 8.25, 8.66, 9.09, 9.53
 ```
 
-This program will find 3 possible combinations or resistors: a pair where both R1 and R2 are taken from E12, a pair where they may be from E12 or E24, and a pair where they may be from any series. This is because E48 is not as common as E12 or E24.
+This program will find 3 possible combinations of resistors: a pair where both R1 and R2 are taken from E12, a pair where they may be from E12 or E24, and a pair where they may be from any series. This is because E48 is not as common as E12 or E24.
 
 It runs in `O(n^2)` time where n is the number of values in the series (not very efficient, but the data sets are so tiny so who cares).
 
@@ -45,12 +45,13 @@ to run do:
 possible output.
 
 ```
-make run
 ./resistor_value_finder.out
 Resistor Value Calculator
 Please input the target ratio R1/R2:
-2.482
-[E12] 12:4.7 (2.55319)
-[E24] 20:8.2 (2.43902)
-[E48] 16.9:6.81 (2.48164)
+4.11
+[E12] 33/8.2 (4.02439)
+[E24] 16/3.9 (4.10256)
+[E48] 15/3.65 (4.10959)
 ```
+
+each series gives a better and better approximation of the target ratio 4.11. The most accurate resistor combination would be a 15k and 3.65k resistor.
